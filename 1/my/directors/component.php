@@ -4,7 +4,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 \Bitrix\Main\Loader::includeModule('iblock');
 
 $entity = \Bitrix\Iblock\Model\Section::compileEntityByIblock(3);
-
+/** Получаем id всех руководителей из инфоблока структуры компании**/
 $rsSection = $entity::getList(array(
 	"filter" => array(
 		"ACTIVE" => "Y"
@@ -30,7 +30,7 @@ $arRequiredFields = array('ID', 'PERSONAL_BIRTHDAY');
 $arSelectFields = !empty($arParams['SELECT_FIELDS']) && is_array($arParams['SELECT_FIELDS'])
 	? array_merge($arRequiredFields, $arParams['SELECT_FIELDS'])
 	: array('*', 'UF_*');
-
+/** Получаем пользователей **/
 $result = \Bitrix\Main\UserTable::getList(array(
     'select' => $arSelectFields,
     'order' => array('NAME'=>'ASC'),
