@@ -1,0 +1,15 @@
+Папка my содержит компонент, его нужно положить в папку local/components. В файл /stream/index.php добавить вызов компонента:
+
+$APPLICATION->IncludeComponent(
+  'my:directors',
+  'widget',
+  [
+    'NAME_TEMPLATE' => '',
+    'CACHE_TYPE' => 'A',
+    'CACHE_TIME' => '86450',
+    'CACHE_DATE' => date('dmy'),
+    'DETAIL_URL' => SITE_DIR.'company/personal/user/#USER_ID#/',
+    'DEPARTMENT' => '0',
+    'AJAX_OPTION_ADDITIONAL' => ''
+  ]
+);
